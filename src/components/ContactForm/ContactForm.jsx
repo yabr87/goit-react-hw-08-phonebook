@@ -17,11 +17,11 @@ const ContactForm = () => {
   const onFormSabmit = e => {
     e.preventDefault();
     const name = e.currentTarget.name.value.toLowerCase();
-    const phone = formatUserTel(e.currentTarget.number.value);
+    const number = formatUserTel(e.currentTarget.number.value);
 
     if (checkNameInPhonebook(name, contacts)) return;
 
-    dispatch(fetchAddContacts({ name, phone }));
+    dispatch(fetchAddContacts({ name, number }));
 
     e.currentTarget.reset();
   };

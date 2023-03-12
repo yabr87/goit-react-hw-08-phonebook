@@ -11,6 +11,7 @@ import {
 import { getFilter, getfiteredContacts } from 'redux/filter/filterSelectors';
 import { isUserLogin } from 'redux/auth/authSlelector';
 import { Navigate } from 'react-router-dom';
+import ContactForm from 'components/ContactForm';
 
 const ContactList = () => {
   const contacts = useSelector(getAllContacts);
@@ -32,21 +33,24 @@ const ContactList = () => {
   }
 
   return (
-    <ul className={s.contactList}>
-      {fiteredContacts.map(({ id, name, phone }) => {
-        return (
-          <li key={id} className={s.contactItem}>
-            <span className={s.userName}>{name}:</span>
-            <span className={s.usertel}>{phone}</span>
-            <Button
-              text="delete"
-              type="button"
-              onBtnClick={() => onDeleteContact(id)}
-            />
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <ContactForm />
+      <ul className={s.contactList}>
+        {fiteredContacts.map(({ id, name, number }) => {
+          return (
+            <li key={id} className={s.contactItem}>
+              <span className={s.userName}>{name}:</span>
+              <span className={s.usertel}>{number}</span>
+              <Button
+                text="delete"
+                type="button"
+                onBtnClick={() => onDeleteContact(id)}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 };
 

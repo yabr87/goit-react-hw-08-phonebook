@@ -6,14 +6,14 @@ import Button from 'components/shared/components/Button';
 import { fetchLogout } from 'redux/auth/authOperations';
 
 const NavUser = () => {
-  const { name } = useSelector(getUser);
+  const { email } = useSelector(getUser);
   const dispatch = useDispatch();
 
   return (
     <NavUserWrapper>
       <UserNaneText>
         <FaUserCircle size={30} />
-        {name}
+        {email}
       </UserNaneText>
       <Button
         text="logout"
