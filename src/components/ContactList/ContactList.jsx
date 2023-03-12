@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Button from 'components/Button';
+import Button from 'components/shared/components/Button';
 import s from './ContactList.module.css';
 import { getAllContacts } from 'redux/contacts/contactsSelectors';
 import {
@@ -9,10 +9,13 @@ import {
   fetchDeleteContacts,
 } from 'redux/contacts/contactsOperations';
 import { getFilter, getfiteredContacts } from 'redux/filter/filterSelectors';
+import { isUserLogin } from 'redux/auth/authSlelector';
+import { Navigate } from 'react-router-dom';
 
 const ContactList = () => {
   const contacts = useSelector(getAllContacts);
   const filter = useSelector(getFilter);
+  const isLogin = useSelector(isUserLogin);
   const fiteredContacts = getfiteredContacts(filter, contacts);
   const dispatch = useDispatch();
 
@@ -23,6 +26,10 @@ const ContactList = () => {
   const onDeleteContact = id => {
     dispatch(fetchDeleteContacts(id));
   };
+
+  if (!isLogin) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <ul className={s.contactList}>

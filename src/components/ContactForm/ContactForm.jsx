@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 // import { nanoid } from 'nanoid';
-import Button from 'components/Button';
+import Button from 'components/shared/components/Button';
 import s from './ContactForm.module.css';
 
 import {

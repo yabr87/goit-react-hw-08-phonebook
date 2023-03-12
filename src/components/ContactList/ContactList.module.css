@@ -1,22 +1,31 @@
 .contactList {
-  padding: 10px;
+  padding: 12px;
   width: 380px;
+  overflow-y: scroll;
+  max-height: calc(100vh - 136px);
+  min-height: calc(100vh - 136px);
+  border: 1px solid darkgrey;
+  border-radius: 5px;
+}
+
+.contactList::-webkit-scrollbar {
+  width: 5px;
+}
+
+.contactList::-webkit-scrollbar-thumb {
+  background: darkgrey;
+  border-radius: 5px;
 }
 .contactItem {
   margin-bottom: 10px;
   text-transform: capitalize;
-  border-bottom: 1px dashed silver;
-  padding: 3px;
-  border-radius: 15px;
+  border-bottom: 1px dashed darkgrey;
+  padding: 3px 4px;
+  border-radius: 5px;
   display: grid;
   grid-template: 'a b c' / 1.8fr 1.2fr 0.7fr;
   animation-duration: 1s;
   animation-name: addContact;
-}
-.userName::before {
-  content: '\2022';
-  color: inherit;
-  margin-right: 4px;
 }
 
 .usertel {
