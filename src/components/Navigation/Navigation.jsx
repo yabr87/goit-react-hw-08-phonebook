@@ -1,4 +1,4 @@
-import { Nav, NavigationLink } from './Navigation.styles';
+import { Nav } from './Navigation.styles';
 import { useSelector } from 'react-redux';
 import NavAuth from './NavAuth';
 import NavUser from './NavUser';

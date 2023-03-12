@@ -6,11 +6,12 @@ import { FilterInput, FilterLabel } from './Filter.styles';
 import { isUserLogin } from 'redux/auth/authSlelector';
 
 const Filter = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
   const isLogin = useSelector(isUserLogin);
   const navigate = useNavigate();
+  // const searchQuery = searchParams.get('query');
 
   const onFilterInputChange = ({ target }) => {
     setSearchParams({ query: target.value });
