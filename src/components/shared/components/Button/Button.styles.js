@@ -13,6 +13,7 @@ export const Btn = styled.button`
   padding: 3px 8px;
   transition: all 0.2s ease;
   box-shadow: 0 2px darkgray;
+  max-width: 120px;
 
   &:hover {
     box-shadow: 0 1px darkgray;

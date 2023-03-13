@@ -7,12 +7,13 @@ export const Nav = styled.nav`
   padding: 6px 12px;
 `;
 
-const isActive = true;
 export const NavigationLink = styled(NavLink)`
   box-sizing: border-box;
-  height: 21px;
+  color: gray;
+  /* height: 21px; */
+  font-weight: 500;
   font-family: inherit;
-  font-size: 13.3px;
+  font-size: 16px;
   background-color: white;
   text-transform: uppercase;
   border-radius: 5px;
@@ -22,8 +23,6 @@ export const NavigationLink = styled(NavLink)`
   padding: 3px 8px;
   transition: all 0.2s ease;
   box-shadow: 0 2px darkgray;
-  /* background-color: white; */
-  background-color: ${isActive ? 'white' : 'red'};
 
   &:hover {
     box-shadow: 0 1px darkgray;

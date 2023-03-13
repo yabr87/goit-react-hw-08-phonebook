@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import { nanoid } from 'nanoid';
+import TextInput from 'components/shared/components/TextInput';
+import fields from './fields';
+
 import Button from 'components/shared/components/Button';
-import s from './ContactForm.module.css';
+import { AddForm } from './ContactForm.styles';
 
 import {
   checkNameInPhonebook,
@@ -27,36 +29,11 @@ const ContactForm = () => {
   };
 
   return (
-    <form className={s.form} autoComplete="off" onSubmit={onFormSabmit}>
-      <label className={s.label} htmlFor="contactsName">
-        Name
-      </label>
-      <input
-        className={s.input}
-        id="contactsName"
-        type="text"
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-      />
-      <label className={s.label} htmlFor="contactsTel">
-        Number
-      </label>
-      <input
-        className={s.input}
-        id="contactsTel"
-        type="tel"
-        name="number"
-        pattern="\d*"
-        title="The phone number must be ten digits. e.g. 0970066415"
-        minLength="10"
-        maxLength="10"
-        required
-      />
-
+    <AddForm autoComplete="off" onSubmit={onFormSabmit}>
+      <TextInput {...fields.name} />
+      <TextInput pattern="\d*" {...fields.number} />
       <Button text="Add contact" type="submit" />
-    </form>
+    </AddForm>
   );
 };
 

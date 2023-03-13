@@ -26,5 +26,5 @@ export const Logo = styled.span`
 export const NavBar = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 `;

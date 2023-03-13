@@ -3,8 +3,8 @@ import { NavigationLink } from '../Navigation.styles';
 const NavAuth = () => {
   return (
     <>
-      <NavigationLink to="/register">register</NavigationLink>
-      <NavigationLink to="/login">login</NavigationLink>
+      <NavigationLink to="/register">register page</NavigationLink>
+      <NavigationLink to="/login">login page</NavigationLink>
     </>
   );
 };

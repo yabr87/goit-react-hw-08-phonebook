@@ -5,12 +5,13 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCurrent } from 'redux/auth/authOperations';
-
-import ContactList from '../ContactList';
 import Header from '../Header';
 import Footer from 'components/Footer';
-import RegisterPage from 'components/RegisterPage';
-import LoginPage from 'components/LoginPage';
+import RegisterPage from 'components/pages/RegisterPage';
+import LoginPage from 'components/pages/LoginPage';
+import HomePage from 'components/pages/HomePage';
+import ContactsPage from 'components/pages/ContactsPage';
+import ContactDetails from 'components/ContactDetails';
 
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
@@ -28,8 +29,15 @@ const App = () => {
       <main>
         <Suspense fallback={null}>
           <Routes>
-            <Route path="/" element={<div>Homepage</div>} />
-
+            <Route
+              path="/"
+              element={
+                <RestrictedRoute
+                  redirectTo="/contacts"
+                  component={<HomePage />}
+                />
+              }
+            />
             <Route
               path="/register"
               element={
@@ -39,7 +47,6 @@ const App = () => {
                 />
               }
             />
-
             <Route
               path="/login"
               element={
@@ -49,20 +56,20 @@ const App = () => {
                 />
               }
             />
-
             <Route
               path="/contacts"
               element={
-                <PrivateRoute redirectTo="/login" component={<ContactList />} />
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<ContactsPage />}
+                />
               }
-            />
-            {/* <Route path="/register" element={<RegisterPage />} /> */}
-            {/* <Route path="/login" element={<LoginPage />} /> */}
-            {/* <Route path="/contacts" element={<ContactList />} /> */}
+            >
+              <Route path=":id" element={<ContactDetails />} />
+            </Route>
             <Route path="*" element={<Navigate to="/" replace={true} />} />
           </Routes>
         </Suspense>
-        {/* <ContactForm /> */}
       </main>
       <Footer />
     </>
