@@ -9,14 +9,14 @@ import {
   fetchDeleteContacts,
 } from 'redux/contacts/contactsOperations';
 import { getFilter, getfiteredContacts } from 'redux/filter/filterSelectors';
-import { isUserLogin } from 'redux/auth/authSlelector';
-import { Navigate } from 'react-router-dom';
+// import { isUserLogin } from 'redux/auth/authSlelector';
+// import { Navigate } from 'react-router-dom';
 import ContactForm from 'components/ContactForm';
 
 const ContactList = () => {
   const contacts = useSelector(getAllContacts);
   const filter = useSelector(getFilter);
-  const isLogin = useSelector(isUserLogin);
+  // const isLogin = useSelector(isUserLogin);
   const fiteredContacts = getfiteredContacts(filter, contacts);
   const dispatch = useDispatch();
 
@@ -28,9 +28,9 @@ const ContactList = () => {
     dispatch(fetchDeleteContacts(id));
   };
 
-  if (!isLogin) {
-    return <Navigate to="/login" />;
-  }
+  // if (!isLogin) {
+  //   return <Navigate to="/login" />;
+  // }
 
   return (
     <>

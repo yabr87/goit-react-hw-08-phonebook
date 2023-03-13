@@ -5,7 +5,7 @@ import {
   login,
   logout,
   getCurrent,
-} from 'components/utils/connectionsApi';
+} from 'components/utils/ConnectionsApi';
 
 export const fetchCurrent = createAsyncThunk(
   'auth/current',

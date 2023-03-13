@@ -1,4 +1,4 @@
-import instance from './connectionsApi';
+import instance from './ConnectionsApi';
 
 export const getContacts = async () => {
   const { data } = await instance.get('/contacts');
