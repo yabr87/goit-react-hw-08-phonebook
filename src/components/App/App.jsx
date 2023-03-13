@@ -12,6 +12,8 @@ import Footer from 'components/Footer';
 import RegisterPage from 'components/RegisterPage';
 import LoginPage from 'components/LoginPage';
 
+import PrivateRoute from 'components/PrivateRoute';
+
 const App = () => {
   const dispatch = useDispatch();
 
@@ -28,7 +30,14 @@ const App = () => {
             <Route path="/" element={<div>Homepage</div>} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/contacts" element={<ContactList />} />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute redirectTo="/login" component={<ContactList />} />
+              }
+            />
+            {/* <Route path="/contacts" element={<ContactList />} /> */}
+
             <Route path="*" element={<Navigate to="/" replace={true} />} />
           </Routes>
         </Suspense>
