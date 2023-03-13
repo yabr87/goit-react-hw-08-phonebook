@@ -9,7 +9,7 @@ export const ContactItem = styled.li`
 `;
 
 export const Tel = styled.span`
-  margin-right: 10px;
+  /* margin-right: 10px; */
 `;
 
 export const ContactLink = styled(NavLink)`
@@ -18,7 +18,8 @@ export const ContactLink = styled(NavLink)`
   border-radius: 5px;
   border-bottom: 1px dashed darkgrey;
   display: grid;
-  grid-template: 'a b c' / 1.8fr 1.2fr 0.7fr;
+  gap: 16px;
+  grid-template: 'a b' / 1.6fr 0.64fr;
   &:hover {
     background-color: darkgrey;
   }
