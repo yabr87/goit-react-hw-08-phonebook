@@ -5,7 +5,7 @@ import { LoginForm, FormWrapper, Title } from './LoginPage.styles';
 import Button from 'components/shared/components/Button';
 import initialState from './initialState';
 import fields from './fields';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch /*useSelector*/ } from 'react-redux';
 import { fetchLogin } from 'redux/auth/authOperations';
 // import { isUserLogin } from 'redux/auth/authSlelector';
 
