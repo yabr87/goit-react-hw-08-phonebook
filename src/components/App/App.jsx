@@ -1,20 +1,21 @@
-import React from 'react';
-import { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCurrent } from 'redux/auth/authOperations';
-import Header from '../Header';
-import Footer from 'components/Footer';
-import RegisterPage from 'components/pages/RegisterPage';
-import LoginPage from 'components/pages/LoginPage';
-import HomePage from 'components/pages/HomePage';
-import ContactsPage from 'components/pages/ContactsPage';
-import ContactDetails from 'components/ContactDetails';
 
+import Footer from 'components/Footer';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
+import ContactDetails from 'components/ContactDetails';
+
+// import ContactsPage from 'components/pages/ContactsPage';
+const Header = lazy(() => import('../Header'));
+const RegisterPage = lazy(() => import('components/pages/RegisterPage'));
+const LoginPage = lazy(() => import('components/pages/LoginPage'));
+const HomePage = lazy(() => import('components/pages/HomePage'));
+const ContactsPage = lazy(() => import('components/pages/ContactsPage'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,9 +26,9 @@ const App = () => {
 
   return (
     <>
-      <Header />
-      <main>
-        <Suspense fallback={null}>
+      <Suspense fallback={null}>
+        <Header />
+        <main>
           <Routes>
             <Route
               path="/"
@@ -69,9 +70,9 @@ const App = () => {
             </Route>
             <Route path="*" element={<Navigate to="/" replace={true} />} />
           </Routes>
-        </Suspense>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </Suspense>
     </>
   );
 };
