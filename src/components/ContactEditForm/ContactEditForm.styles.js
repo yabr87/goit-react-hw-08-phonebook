@@ -12,3 +12,8 @@ export const EditForm = styled.form`
   border: 1px solid darkgrey;
   border-radius: 5px;
 `;
+
+export const BtnBox = styled.div`
+  display: flex;
+  gap: 12px;
+`;

@@ -14,6 +14,7 @@ export const Btn = styled.button`
   transition: all 0.2s ease;
   box-shadow: 0 2px darkgray;
   max-width: 120px;
+  min-width: 65px;
 
   &:hover {
     box-shadow: 0 1px darkgray;

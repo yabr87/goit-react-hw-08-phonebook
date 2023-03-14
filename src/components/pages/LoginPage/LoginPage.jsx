@@ -5,12 +5,10 @@ import { LoginForm, FormWrapper, Title } from './LoginPage.styles';
 import Button from 'components/shared/components/Button';
 import initialState from './initialState';
 import fields from './fields';
-import { useDispatch /*useSelector*/ } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchLogin } from 'redux/auth/authOperations';
-// import { isUserLogin } from 'redux/auth/authSlelector';
 
 const LoginPage = () => {
-  // const isLogin = useSelector(isUserLogin);
   const dispatch = useDispatch();
   const onFormSubmit = data => {
     dispatch(fetchLogin(data));
@@ -21,10 +19,6 @@ const LoginPage = () => {
     onFormSubmit,
   });
   const { email, password } = state;
-
-  // if (isLogin) {
-  //   return <Navigate to="/contacts" />;
-  // }
 
   return (
     <LoginForm onSubmit={handleSubmit}>

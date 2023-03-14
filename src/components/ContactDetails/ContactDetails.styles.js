@@ -15,3 +15,8 @@ export const TextWrapp = styled.span`
 export const Photo = styled.img`
   border-radius: 5px;
 `;
+
+export const BtnBox = styled.div`
+  display: flex;
+  gap: 12px;
+`;
