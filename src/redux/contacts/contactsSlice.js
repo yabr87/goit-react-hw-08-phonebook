@@ -3,6 +3,7 @@ import {
   fetchAllContacts,
   fetchAddContacts,
   fetchDeleteContacts,
+  fetchEditContacts,
 } from './contactsOperations';
 
 const initialState = {
@@ -47,6 +48,23 @@ const contactsSlice = createSlice({
         store.items.splice(index, 1);
       })
       .addCase(fetchDeleteContacts.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.error = payload;
+      })
+      .addCase(fetchEditContacts.pending, store => {
+        store.isLoading = true;
+      })
+      .addCase(fetchEditContacts.fulfilled, (store, { payload }) => {
+        store.isLoading = false;
+        store.items = store.items.map(contact => {
+          if (contact.id === payload.id) {
+            return { ...contact, ...payload };
+          } else {
+            return contact;
+          }
+        });
+      })
+      .addCase(fetchEditContacts.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.error = payload;
       });
