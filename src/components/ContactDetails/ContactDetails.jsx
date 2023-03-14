@@ -11,6 +11,8 @@ import {
   Photo,
 } from './ContactDetails.styles';
 
+import ContactEditForm from 'components/ContactEditForm';
+
 const ContactDetails = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -40,6 +42,7 @@ const ContactDetails = () => {
         type="button"
         onBtnClick={() => onDeleteContact(id)}
       />
+      <ContactEditForm id={id} name={name} number={number} />
     </>
   );
 };
