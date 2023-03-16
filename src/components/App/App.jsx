@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <>
-      <Suspense fallback={null}>
+      <Suspense fallback={<div>LOADING......</div>}>
         <Header />
         <main>
           <Routes>
