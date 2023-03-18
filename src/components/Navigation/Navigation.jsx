@@ -6,12 +6,7 @@ import { isUserLogin } from 'redux/auth/authSlelector';
 
 const Navigation = () => {
   const isLogin = useSelector(isUserLogin);
-  return (
-    <Nav>
-      {!isLogin && <NavAuth />}
-      {isLogin && <NavUser />}
-    </Nav>
-  );
+  return <Nav>{isLogin ? <NavUser /> : <NavAuth />}</Nav>;
 };
 
 export default Navigation;
